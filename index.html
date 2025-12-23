@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speakup AI</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<link rel="shortcut icon" href="icon-512.png" type="png/x-icon">
+</head>
+<body>
+
+<div class="app">
+  <header>
+    <h1>🇮🇳 AI English Teacher Free</h1>
+    <p>Learn Spoken English, Vocabulary, Grammar, Pronunciation & Interview Skills</p>
+  </header>
+
+  <section class="content">
+    <h3>Practice Modes</h3>
+    <select id="modeSelect">
+      <option value="beginner">Beginner</option>
+      <option value="intermediate">Intermediate</option>
+      <option value="advanced">Advanced</option>
+      <option value="ielts">IELTS</option>
+      <option value="interview">Interview</option>
+    </select>
+    <button onclick="startPractice()">Start Practice</button>
+    <button id="installBtn" style="display:none;">Install App</button>
+
+    <div class="teacher" id="teacherBox">
+      🧑‍🏫 Welcome! Select a mode to start practicing English confidently.
+    </div>
+
+    <input id="userInput" placeholder="Type or speak your answer..." />
+    <div class="controls">
+      <button onclick="teach()">Submit</button>
+      <button onclick="startVoice()">🎤 Speak</button>
+    </div>
+
+    <div class="stats">
+      <span id="confidence">Confidence Score: 0</span>
+      <span id="answers">Answers: 0</span>
+    </div>
+
+    <h3>Daily Motivation</h3>
+    <p>“Mistakes are proof that you are trying. Keep speaking English every day!”</p>
+  </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
