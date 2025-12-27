@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeakUp AI | Your Personal Tutor</title>
+    <link rel="manifest" href="/manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #10b981;
+            --bg: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.9);
+            --text: #1e293b;
+            --muted: #64748b;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * { box-sizing: border-box; font-family: 'Poppins', sans-serif; transition: all 0.3s ease; }
+
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+            color: var(--text);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .app { display: flex; height: 100vh; padding: 15px; gap: 15px; }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            width: 300px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: var(--card-shadow);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar h4 {
+            margin: 15px 0 8px;
+            font-size: .85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--muted);
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            background: white;
+            margin-bottom: 15px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        select:focus { border-color: var(--primary); }
+
+        .start-btn {
+            padding: 15px;
+            border: none;
+            border-radius: 15px;
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .start-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(99, 102, 241, 0.4); }
+
+        #startTimer {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 20px 0;
+            padding: 10px;
+            background: #fff;
+            border-radius: 12px;
+            color: var(--primary-dark);
+        }
+
+        /* ===== MAIN AREA ===== */
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+        }
+
+        header {
+            padding: 20px 30px;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .chat {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Teacher Box Style */
+        .teacher-container {
+            background: #f1f5ff;
+            padding: 20px;
+            border-radius: 20px;
+            border-left: 5px solid var(--primary);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #334155;
+            animation: slideIn 0.5s ease;
+        }
+
+        /* Stats Cards */
+        .stats {
+            display: flex;
+            gap: 15px;
+            padding: 15px 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 10px 20px;
+            border-radius: 12px;
+            flex: 1;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #f1f5f9;
+        }
+
+        /* ===== INPUT AREA ===== */
+        .input-section {
+            padding: 20px 30px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 10px;
+        }
+
+        #userInput {
+            flex: 1;
+            padding: 15px 20px;
+            border-radius: 15px;
+            border: 2px solid #f1f5f9;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        #userInput:focus { border-color: var(--primary); }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-submit { background: var(--primary); color: white; }
+        .btn-voice { background: var(--secondary); color: white; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* MOBILE FIX */
+        @media(max-width: 768px) {
+            .app { padding: 5px; flex-direction: column; }
+            .sidebar { width: 100%; height: auto; }
+            .main { height: 70vh; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="app">
+    <div class="sidebar">
+        <div class="logo">
+            <img width="50px" src="icon-512.png" alt="logo"> Speakup AI
+        </div>
+
+        <h4>Level</h4>
+        <select id="modeSelect">
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+        </select>
+
+        <h4>Mode</h4>
+        <select id="mode">
+            <option value="speaking">Daily Speaking</option>
+            <option value="grammar">Grammar Fixer</option>
+            <option value="interview">Job Interview</option>
+            <option value="ielts">IELTS Prep</option>
+        </select>
+
+        <button class="start-btn" onclick="startPractice()">
+            <i class="fas fa-play"></i> Start Practice
+        </button>
+
+        <div id="startTimer">Time left: 30s</div>
+
+        <button style="display: none;" class="start-btn" id="intall">Install App</button>
+        
+        <p class="motivation" style="margin-top: auto; font-size: 0.8rem; color: var(--muted); text-align: center;">
+            <i class="fas fa-lightbulb"></i> Tip: Use the 'Speak' button for better fluency.
+        </p>
+    </div>
+
+    <div class="main">
+        <header>
+            <div>
+                <strong id="currentModeLabel">AI Teacher</strong>
+                <div style="font-size: 0.7rem; color: var(--secondary);"><i class="fas fa-circle"></i> Online & Free</div>
+            </div>
+            <i class="fas fa-cog" style="color: var(--muted); cursor: pointer;"></i>
+        </header>
+
+        <div class="chat" id="chat">
+            <div class="teacher-container" id="teacherBox">
+                <i class="fas fa-comment-dots"></i> 
+                Hi! I'm your AI English tutor. Select a mode and click 'Start' to begin our conversation!
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card" style="color: var(--primary);">
+                <i class="fas fa-chart-line"></i> <span id="confidence">0%</span>
+            </div>
+            <div class="stat-card" style="color: var(--secondary);">
+                <i class="fas fa-check-circle"></i> <span id="answers">0 Answers</span>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <div class="input-wrapper">
+                <input id="userInput" placeholder="Type your response here..." />
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-submit" onclick="teach()">
+                    <i class="fas fa-paper-plane"></i> Submit
+                </button>
+                <button class="btn btn-voice" onclick="startVoice()">
+                    <i class="fas fa-microphone"></i> Speak
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

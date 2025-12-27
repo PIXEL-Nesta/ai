@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeakUp AI - Master Spoken English</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="icon-512.png" type="png/x-icon">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
+        
+        /* Cursor Effect */
+        .cursor { border-right: 3px solid #4f46e5; animation: blink 0.7s infinite; }
+        @keyframes blink { 0%, 100% { border-color: transparent; } 50% { border-color: #4f46e5; } }
+
+        /* Floating Animation for Buttons */
+        .float-btn { animation: floating 3s ease-in-out infinite; }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Feature Card Hover */
+        .feature-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .feature-card:hover { transform: scale(1.05); shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+        .start-btn {
+            padding: 15px;
+            border: none;
+            border-radius: 15px;
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .start-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(99, 102, 241, 0.4); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <nav class="sticky top-0 z-50 flex justify-between items-center p-6 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="text-2xl font-bold text-indigo-600" data-aos="fade-right"><img width="50px" src="icon-512.png" alt="logo">SpeakUp AI</div>
+        <div class="space-x-8 hidden md:flex items-center" data-aos="fade-left">
+            <a href="#stats" class="font-medium hover:text-indigo-600 transition">Features</a>
+            <a href="#hero-btns" class="font-medium hover:text-indigo-600 transition">Our Impact</a>
+            <a href="#fa" class="font-medium hover:text-indigo-600 transition">FAQ</a>
+            <a href="about.html" class="font-medium hover:text-indigo-600 transition">About US</a>
+            <a href="speakup-ai.html"><button class="bg-indigo-600 text-white px-6 py-2.5 rounded-full font-bold hover:bg-indigo-700 shadow-md transition">Get Started</button></a>
+            
+        </div>
+    </nav>
+
+    <header class="max-w-7xl mx-auto px-6 py-24 text-center">
+        <img data-aos="fade-up" data-aos-delay="200" style="justify-self: center;" width="300px" src="icon-512.png" alt="logo">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight min-h-[160px]">
+            <span id="typing-text" class="cursor"></span>
+        </h1>
+        <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto opacity-0 transition-opacity duration-1000" id="hero-desc">
+            Stop hesitating. Start speaking. Get real-time feedback on your grammar, fluency, and pronunciation with the world's most advanced AI English tutor.
+        </p>
+        <div class="flex justify-center gap-4 opacity-0 transition-opacity duration-1000 delay-500" id="hero-btns">
+            <a style="text-decoration: none;" href="speakup-ai.html"><button class="float-btn bg-indigo-600 text-white px-10 py-4 rounded-full text-lg font-bold shadow-xl hover:bg-indigo-700 transition">Start Free</button></a>
+            <button style="display: none;" class="start-btn" id="intall">Install App</button>
+            
+        </div>
+    </header>
+
+    <section id="stats" class="bg-indigo-600 py-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+            <div data-aos="zoom-in" data-aos-delay="100">
+                <div class="text-4xl font-bold mb-2">500K+</div>
+                <div class="text-indigo-200 text-sm uppercase tracking-wide font-semibold">Active Learners</div>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="200">
+                <div class="text-4xl font-bold mb-2">120+</div>
+                <div class="text-indigo-200 text-sm uppercase tracking-wide font-semibold">Countries</div>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="300">
+                <div class="text-4xl font-bold mb-2">95%</div>
+                <div class="text-indigo-200 text-sm uppercase tracking-wide font-semibold">Success Rate</div>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="400">
+                <div class="text-4xl font-bold mb-2">4.9/5</div>
+                <div class="text-indigo-200 text-sm uppercase tracking-wide font-semibold">User Rating</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="max-w-7xl mx-auto px-6 py-24">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-4">Why choose SpeakUp AI?</h2>
+            <p class="text-gray-600">Advanced tools designed to make you sound like a native speaker.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-10">
+            <div class="feature-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100" data-aos="fade-right" data-aos-delay="100">
+                <div class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center mb-6 text-2xl text-indigo-600 font-bold">1.</div>
+                <h3 class="text-xl font-bold mb-4">AI Pronunciation</h3>
+                <p class="text-gray-600 leading-relaxed">Our AI detects exactly where you struggle and helps you fix your accent with micro-drills.</p>
+            </div>
+            <div class="feature-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6 text-2xl text-emerald-600 font-bold">2.</div>
+                <h3 class="text-xl font-bold mb-4">Interview Mode</h3>
+                <p class="text-gray-600 leading-relaxed">Practice real-world job interview questions and get a detailed confidence score.</p>
+            </div>
+            <div class="feature-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100" data-aos="fade-left" data-aos-delay="300">
+                <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 text-2xl text-orange-600 font-bold">3.</div>
+                <h3 class="text-xl font-bold mb-4">Grammar Fixer</h3>
+                <p class="text-gray-600 leading-relaxed">Don't just speak; speak correctly. Get instant corrections on your sentence structure.</p>
+            </div>
+        </div>
+        <br>
+            <div class="feature-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100" data-aos="fade-left" data-aos-delay="300">
+                <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 text-2xl text-orange-600 font-bold">4.</div>
+                <h3 class="text-xl font-bold mb-4">IELTS Speaking Test Simulator</h3>
+                <p class="text-gray-600 leading-relaxed">Prepare for the IELTS speaking with our AI IELTS simulator. Practice all tree parts, get your estimated band score instantly, receive detailed feedback on fluency, coherence, vocabulary, grammar, and pronunciation. Take IELTS speaking mock tests online for free.</p>
+            </div>
+        </div>
+        <br>
+            <div class="feature-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100" data-aos="fade-left" data-aos-delay="300">
+                <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 text-2xl text-orange-600 font-bold">5.</div>
+                <h3 class="text-xl font-bold mb-4">Daily English Speaking Practice</h3>
+                <p class="text-gray-600 leading-relaxed">Build a daily English speaking habit with our speaking lessons. Choose from business English, conversational English, or advanced speaking courses. Just 15-20 minutes of daily English practice can significantly improve your speaking fluency and confidence.</p>
+            </div>
+        </div>
+    </section>
+<div id="fa"></div>
+<br>
+<br><br><br><br>
+    <section id="faq" class="bg-gray-100 py-24">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div class="bg-white p-6 rounded-2xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="font-bold text-lg mb-2">Is SpeakUp AI really free?</h4>
+                    <p class="text-gray-600">Yes! We offer a free tier that includes daily practice sessions to help everyone get started.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="font-bold text-lg mb-2">What is the best AI app for English speaking practice?</h4>
+                    <p class="text-gray-600">SpeakUp AI is one of the best AI English speaking apps, with over 500K+ users globally. Our AI provides real-time feedback on pronunciation, fluency, vocabulary, and grammar. Unlike other apps, we offer specialized practice for IELTS speaking tests, job interview preparation, and workplace English.
+</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="font-bold text-lg mb-2">How can I test my English speaking level?</h4>
+                    <p class="text-gray-600">Take our English level test to get your CEFR score (A1–C2) instantly. Our AI-powered speaking test evaluates your fluency, pronunciation, vocabulary, and grammar. The test takes about 15 minutes, and you'll receive a detailed report with your score and personalized improvement recommendations. SpeakUp AI Speaking Level Test – over 500K+ assessments delivered worldwide.
+</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="font-bold text-lg mb-2">Can I practice for IELTS?</h4>
+                    <p class="text-gray-600">Absolutely. We have a dedicated IELTS Speaking module that follows the official scoring criteria.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white border-t border-gray-200 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="text-2xl font-bold text-indigo-600 mb-6">SpeakUp AI</div>
+            <p class="text-gray-400 text-sm">© 2025 SpeakUp AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Start Animations
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        const textElement = document.getElementById('typing-text');
+        const description = document.getElementById('hero-desc');
+        const buttons = document.getElementById('hero-btns');
+        const text = "Improve your Spoken English with AI.";
+        let index = 0;
+
+        function typeEffect() {
+            if (index < text.length) {
+                textElement.innerHTML = text.substring(0, index + 1);
+                index++;
+                setTimeout(typeEffect, 60); 
+            } else {
+                textElement.classList.remove('cursor');
+                description.style.opacity = "1";
+                buttons.style.opacity = "1";
+            }
+        }
+
+        window.onload = typeEffect;
+    </script>
+<script src="script.js"></script>
+</body>
+</html>
